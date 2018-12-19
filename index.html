@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <title>My Mapbox GL JS Map</title>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+ 
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  
+  <!-- Map sidebar --> 
+  <div id="sidebar">
+    <div>
+      <h1 class='page-title'>New York Hydrology</h1>
+      <!-- About this map button -->
+      <button id="about" class='button-default'><i class="fas fa-question-circle"></i>&nbsp;About this map</button>
+      <div id="chapters"></div>
+    </div>
+  </div>
+
+  
+  <!-- The map will be added to this div by javascript --> 
+  <div id="map-parent">
+    <div id="map"></div>
+
+    <!-- Time slider -->   
+    <div id="slidercontainer">
+      <h4>Sea Level Rise Timeline(After how many years:</h4>
+      <input type="range" min="0" max="500" value="50" class="slider" id="timeslider">
+      <div id="timeline-labels"></div> <!-- populated by d3 -->
+    </div>
+
+    <!-- Map overlay sidebar -->
+    <div id='map-sidebar'>
+      <div id='layers-control'>
+        <h3>Show/Hide Layers:</h3>
+      </div>
+
+      <!-- Map legend (populated by javascript code) -->
+      <div id='legend'></div>
+
+    </div>
+  </div>
+
+  <!-- A modal, hidden by default in our css, which provides info about this project when shown -->
+  <div class='modal'>
+    
+    <h2 class='modal-title'>About this project</h2>
+    
+     <div class='modal-body'><p>This is an example map of New York City created in the Scripting Civic Engagement seminar at the University of Virginia (Fall 2017), taught by Andrea Hansen Phillips.</p><p>Map data courtesy of <a href='https://www.mapbox.com/studio/'>Mapbox Studio</a> and the <a href='https://opendata.cityofnewyork.us/'>NYC Open Data</a></p><p>For questions or to improve this map, contact <a href='mailto:ah2th@virginia.edu'>Andrea Hansen Phillips</a></p></div>
+    
+    <button class='close-button'>&times;</button>  <!-- A special "x" character (the multiply sign) used in close buttons -->  
+  </div>
+  <div id="screen"></div> <!-- Black overlay behind the modal -->
+
+</body>
+<!-- Link to our custom javascript, must be placed at the end of the index.html file -->  
+<script src="map.js"></script>
+</html>
